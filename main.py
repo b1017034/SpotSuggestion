@@ -5,7 +5,7 @@ import dataclasses
 
 from GoogleMaps import Direction
 from GoogleMaps import tsp
-
+import os
 from flask import Flask, jsonify
 
 
@@ -27,5 +27,6 @@ def get_toure():
 
 
 if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
     app.run(debug=True)
 
