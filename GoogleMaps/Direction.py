@@ -2,12 +2,13 @@ import urllib.request, json
 import urllib.parse
 
 import datetime
+import env_setting
 from typing import List
 
 from DataClasses.RouteDataClass import Route, Step
 
 base_url = 'https://maps.googleapis.com/maps/api/directions/json?'
-API_key = 'AIzaSyBnSCGEv9e7kZjCJQAkt-HDZ7PtRkIY95s'
+API_key = env_setting.GCP_AP
 
 
 def route(origin, destination, dep_time):
@@ -90,7 +91,7 @@ def get_routes(origin, destination, dep_time, waypoint_array):
             print('=====')
             routes.append(Route(id=0, origin_id=0, destination_id=0, distance=distance, duration=duration, steps=steps))
 
-    print(routes[0].id)
+    print(directions)
     return routes
 
 
